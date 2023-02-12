@@ -1,17 +1,20 @@
 import './App.css';
 import DislikeButton from './components/DislikeButton/DislikeButton';
 import DislikeCount from './components/DislikeCount/DislikeCount';
+import { useState } from 'react';
+import Post from './components/Post/Post';
 import LikeButton from './components/LikeButton/LikeButton';
 import LikeCount from './components/LikeCount/LikeCount';
-import { useState } from 'react';
+
+
 
 function App() {
-  const [countLikes, setCountLikes] = useState(0)
+  const [countLikes, setLikeCount] = useState(0)
   const [countDislikes, setCountDislikes] = useState(0)
 
   function updateClickLikeCount() {
     let newLikeCount = countLikes + 1
-    setCountLikes(newLikeCount)
+    setLikeCount(newLikeCount)
   }
 
   function updateClickDislikeCount() {
@@ -22,8 +25,10 @@ function App() {
   return (
     <div className="App">
       <h1>Hello World!!!</h1>
+      <Post />
+     
       <LikeButton updateClickLikeCount={updateClickLikeCount} />
-      <LikeCount currentLikes = {countLikes} />
+      <LikeCount currentLikes={countLikes} />
       <DislikeButton updateClickDislikeCount={updateClickDislikeCount} />
       <DislikeCount currentDislikes = {countDislikes} />
     </div>
