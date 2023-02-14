@@ -1,4 +1,3 @@
-import React from "react";
 
 const LikeCount = (props) => {
     return (<p>{props.currentLikes}</p>);
